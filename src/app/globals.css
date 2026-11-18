@@ -55,6 +55,9 @@
     /* Layout & motion */
     --header-h: 76px;
     --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+    --font-sans: Arial, Helvetica, sans-serif;
+    --font-mono: "Courier New", monospace;
   }
 
   /* =========================================================
