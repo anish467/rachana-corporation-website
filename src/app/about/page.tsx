@@ -5,7 +5,7 @@ import {Container} from "@/components/ui/container";
 import {Heading} from "@/components/ui/heading";
 import {Section} from "@/components/ui/section";
 
-export const metadata = {title: "About us", description: "Learn about Rachana Corporation, a supplier of standard weights and weighing solutions since 2000."};
+export const metadata = {title: "About us", description: "Learn about Rachana Corporation, a supplier of standard weights and weighing solutions since 1998."};
 
 export default function About() {
   return (
@@ -20,10 +20,10 @@ export default function About() {
       <Section className="story-section">
         <Container className="story-grid">
           <Reveal>
-            <Heading eyebrow="OUR STORY / SINCE 2000">Precision is more<br />than a specification.<br /><em>It&apos;s a responsibility.</em></Heading>
+            <Heading eyebrow="OUR STORY / SINCE 1998">Precision is more<br />than a specification.<br /><em>It&apos;s a responsibility.</em></Heading>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="story-lead">Rachana Corporation was established in 2000 with a focus on standard weights and weighing-related products.</p>
+            <p className="story-lead">Rachana Corporation was established in 1998 with a focus on standard weights and weighing-related products.</p>
             <p>Over the years, the business has served customers who depend on reliable weighing solutions for laboratory, industrial and quality-control applications. Our approach is centred on understanding requirements, helping customers select suitable products and supporting them with clear communication.</p>
             <p>We continue to build on that foundation with a product range spanning precision standard weights, industrial test weights, weight boxes and weighing equipment.</p>
           </Reveal>
