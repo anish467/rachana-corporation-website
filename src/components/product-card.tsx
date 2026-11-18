@@ -1,0 +1,4 @@
+import Link from "next/link";
+import {ArrowUpRight} from "lucide-react";
+import {ProductArt} from "@/components/product-art";
+export function ProductCard({product,index=0}:{product:any;index?:number}){return <article className="product-card"><Link href={`/products/${product.slug}`} className="product-card-image"><ProductArt name={product.name} index={index} imageUrl={product.imageUrl}/><span className="product-arrow"><ArrowUpRight size={18}/></span></Link><div className="product-card-body"><span className="eyebrow">{product.category}</span><h3><Link href={`/products/${product.slug}`}>{product.name}</Link></h3><p>{product.summary}</p><div className="product-card-meta">{product.weightRange&&<span>{product.weightRange}</span>}{product.accuracyClass&&<span>{product.accuracyClass}</span>}</div></div></article>}

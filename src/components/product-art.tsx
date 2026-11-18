@@ -1,0 +1,3 @@
+import {Scale,Weight,Box as BoxIcon,Layers,Package,Activity} from "lucide-react";
+const icons=[Weight,Scale,BoxIcon,Layers,Package,Activity];
+export function ProductArt({name,index=0,imageUrl}:{name:string;index?:number;imageUrl?:string|null}){if(imageUrl)return <div className="product-art product-photo"><img src={imageUrl} alt={name} loading="lazy"/></div>;const Icon=icons[index%icons.length];return <div className={`product-art art-${index%6}`} aria-label={`${name} product image placeholder`}><div className="art-orbit orbit-one"/><div className="art-orbit orbit-two"/><div className="art-object"><Icon size={68} strokeWidth={1.05}/></div><span className="art-caption">RACHANA · PRECISION</span></div>}
