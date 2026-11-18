@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getAdmin } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { productSchema } from "@/lib/validation";
+import { revalidatePath } from "next/cache";
 
 export async function PUT(
   req: NextRequest,
@@ -38,8 +39,13 @@ export async function PUT(
       }
     });
 
+    revalidatePath("/products");
+    revalidatePath(`/products/${product.slug}`);
+    revalidatePath("/", "layout");
+
     return NextResponse.json({ product });
-  } catch {
+  } catch (error) {
+    console.error("Product update error:", error);
     return NextResponse.json(
       { error: "Could not update product. Check the slug is unique." },
       { status: 409 }
@@ -58,9 +64,17 @@ export async function DELETE(
   const { id } = await params;
 
   try {
-    await db.product.delete({ where: { id } });
+    const deletedProduct = await db.product.delete({
+      where: { id }
+    });
+
+    revalidatePath("/products");
+    revalidatePath(`/products/${deletedProduct.slug}`);
+    revalidatePath("/", "layout");
+
     return NextResponse.json({ ok: true });
-  } catch {
+  } catch (error) {
+    console.error("Product delete error:", error);
     return NextResponse.json(
       { error: "Product not found." },
       { status: 404 }

@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getAdmin } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { productSchema } from "@/lib/validation";
+import { revalidatePath } from "next/cache";
 
 export async function GET() {
   if (!await getAdmin()) {
@@ -44,6 +45,8 @@ export async function POST(req: NextRequest) {
         specifications: p.specifications
       }
     });
+    revalidatePath("/products");
+    revalidatePath("/", "layout");
 
     return NextResponse.json({ product }, { status: 201 });
   } catch {

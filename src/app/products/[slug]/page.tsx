@@ -3,13 +3,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, CheckCircle2 } from "lucide-react";
-import { getProductBySlug, getProducts } from "@/lib/products";
+// import { getProductBySlug, getProducts } from "@/lib/products";
 import { ProductArt } from "@/components/product-art";
+export const dynamic = "force-dynamic";
+export const dynamicParams = true;
+import { getProductBySlug } from "@/lib/products";
 
-export async function generateStaticParams() {
-  const products = await getProducts();
-  return products.map((p) => ({ slug: p.slug }));
-}
+// export async function generateStaticParams() {
+//   const products = await getProducts();
+//   return products.map((p) => ({ slug: p.slug }));
+// }
 
 export async function generateMetadata({
   params,
