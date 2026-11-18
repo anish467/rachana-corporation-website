@@ -35,7 +35,7 @@ export default async function ProductDetail({
 
   if (!p) notFound();
 
-  const specifications = Array.isArray(p.specifications)
+  const specifications = Array.isArray("specifications" in p ? p.specifications : null)
     ? p.specifications.filter(
         (item): item is { parameter: string; value: string } =>
           typeof item === "object" &&
