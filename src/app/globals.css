@@ -4107,3 +4107,19 @@
   object-fit: contain;
   object-position: center;
 }
+
+@media (max-width: 720px) {
+  .detail-art .product-art {
+    height: auto;
+    min-height: 260px;
+    max-height: none;
+    padding: 16px;
+  }
+
+  .detail-art .product-photo img {
+    width: 100%;
+    height: auto;
+    max-height: 380px;
+    object-fit: contain;
+  }
+}
